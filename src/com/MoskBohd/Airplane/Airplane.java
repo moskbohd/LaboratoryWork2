@@ -58,7 +58,8 @@ public class Airplane {
     @Override
     public String toString() {
         return "Airplane{" +
-                "MIDSIZE=" + airplaneClass +
+                "airplaneName=" + airplaneName +
+                "airplaneClass=" + airplaneClass +
                 ", maxPassengers=" + maxPassengers +
                 ", serialNumber='" + serialNumber + '\'' +
                 '}';

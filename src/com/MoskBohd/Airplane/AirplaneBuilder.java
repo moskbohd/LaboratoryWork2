@@ -1,8 +1,5 @@
 package com.MoskBohd.Airplane;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 public class AirplaneBuilder implements IAirplaneBuilder{
     private Airplane airplane;
 

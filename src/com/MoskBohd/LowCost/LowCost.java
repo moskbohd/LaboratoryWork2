@@ -6,6 +6,7 @@ import com.MoskBohd.Airplane.EnumAirplaneClass;
 import com.MoskBohd.BusinessClass.BusinessClass;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Currency;
 
 public class LowCost {
@@ -107,6 +108,7 @@ public class LowCost {
     // Builder
     public static class LowCostBuilder {
         private LowCost lowCost;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
         public LowCostBuilder(){
             lowCost = new LowCost();
@@ -131,12 +133,16 @@ public class LowCost {
             lowCost.setToTown(toTown);
             return this;
         }
-        public LowCostBuilder withDateDeparture(LocalDate dateDeparture){
-            lowCost.setDateDeparture(dateDeparture);
+        public LowCostBuilder withDateDeparture(String dateDeparture){
+            //convert String to LocalDate
+            LocalDate localDate = LocalDate.parse(dateDeparture, formatter);
+            lowCost.setDateDeparture(localDate);
             return this;
         }
-        public LowCostBuilder withDateReturn(LocalDate dateReturn){
-            lowCost.setDateReturn(dateReturn);
+        public LowCostBuilder withDateReturn(String dateReturn){
+            //convert String to LocalDate
+            LocalDate localDate = LocalDate.parse(dateReturn, formatter);
+            lowCost.setDateReturn(localDate);
             return this;
         }
         public LowCost build(){
